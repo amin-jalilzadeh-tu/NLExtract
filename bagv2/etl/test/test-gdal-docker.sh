@@ -17,7 +17,7 @@ NOT="-fieldTypeToString StringList"
 OGR_OPTS="-overwrite -oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES -s_srs EPSG:28992 -t_srs EPSG:4326"
 
 # NB we use host.docker.internal to connect from within Docker Container to localhost PostGIS!
-PG="'PG:dbname=bagv2 active_schema=doesburg host=host.docker.internal user=postgres password=postgres'"
+PG="'PG:dbname=DATALES_20240512 active_schema=public host=host.docker.internal user=postgres password=865990289'"
 
 # Doesburg Small in BAG LV format
 # https://extracten.bag.kadaster.nl/lvbag/extracten/Gemeente%20LVC/0221/BAGGEM0221L-15022021.zip

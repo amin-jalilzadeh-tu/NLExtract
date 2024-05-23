@@ -19,13 +19,11 @@ NLX_HOME=$(cd ${NLX_ETL_DIR}/../../ && pwd)
 
 pushd ${NLX_ETL_DIR}
 
-# Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
-# Dan extern export STETL_HOME= zetten.
-[[ -z ${STETL_HOME} ]] && STETL_HOME="${NLX_HOME}/externals/stetl"
+# Set STETL_HOME directly
+STETL_HOME="/c/Users/aminj/Anaconda3/Lib/site-packages/stetl"
 
-# Nodig voor imports
-[[ -z ${PYTHONPATH} ]] && export PYTHONPATH="${STETL_HOME}:${NLX_HOME}:."
-[[ -z ${PYTHONPATH} ]] || export PYTHONPATH="${STETL_HOME}:${NLX_HOME}:.:${PYTHONPATH}"
+# Ensure PYTHONPATH includes this new STETL_HOME
+export PYTHONPATH="${STETL_HOME}:${NLX_HOME}:.:${PYTHONPATH}"
 
 # Default arguments/options, common.args is always applied
 common_options_file="${NLX_ETL_DIR}/options/common.args"
@@ -45,7 +43,7 @@ user_args="${@}"
 
 log_info "Using options_file=${options_file} and user_args=${user_args}"
 
-# Uiteindelijke commando.
-${STETL_HOME}/bin/stetl -a ${common_options_file} -a ${options_file} ${user_args}
+# Use the Python module to run stetl
+python ${STETL_HOME}/main.py -a ${common_options_file} -a ${options_file} ${user_args}
 
 popd

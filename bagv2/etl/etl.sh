@@ -5,6 +5,7 @@
 # Dit is een front-end/wrapper shell-script om uiteindelijk Stetl met een configuratie
 # (etl-imbag.cfg) en parameters (options/myoptions.args) aan te roepen.
 #
+#!/c/Users/aminj/Anaconda3/python
 # Author: Just van den Broecke
 #
 
